@@ -13,9 +13,11 @@
   margin-bottom: 10px;
 }
 
-h2 { color: #ff4444; }
+h2 { color: #cc0000; }
 
-p { color: white; margin-bottom: 20px; }
+p { color: #444444;
+  margin-bottom: 20px;
+  font-weight: 500; }
 
 button {
   background: #ff4444;

@@ -7,7 +7,7 @@
 
 h1 {
   text-align: center;
-  color: #00b5cc; /* Verde Rick & Morty */
+  color: #00b5cc;
   text-shadow: 2px 2px #b2df28;
 }
 
@@ -86,7 +86,6 @@ button:disabled {
   box-shadow: 0 0 10px rgba(178, 223, 40, 0.3);
 }
 
-/* Ajuste para que el mensaje de error se vea mejor */
 .error-card {
   text-align: center;
   padding: 20px;

@@ -20,5 +20,7 @@
         public string Name { get; set; }
         public string Air_date { get; set; }
         public string Episode { get; set; }
+
+        public List<string> Characters { get; set; }
     }
 }

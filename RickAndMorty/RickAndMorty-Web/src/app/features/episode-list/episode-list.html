@@ -13,41 +13,50 @@
   </div>
 
   @if (episodeService.loading()) {
-    <div class="loader">Cargando episodios...</div>
-  }
-
-  @if (episodeService.error()) {
-  <app-error-handler
-    [message]="episodeService.error()!"
-    (retry)="changePage(1)">
+  <div class="loader">Cargando episodios...</div>
+  } @if (episodeService.error()) {
+  <app-error-handler [message]="episodeService.error()!" (retry)="changePage(1)">
   </app-error-handler>
-}
+  }
 
   <div class="grid">
     @for (episode of episodeService.episodes()?.results; track episode.id) {
-      <div class="card">
-        <span class="tag">{{ episode.episode }}</span>
-        <h3>{{ episode.name }}</h3>
-        <p>Lanzamiento: {{ episode.air_date }}</p>
-      </div>
+    <div class="card">
+      <span class="tag">{{ episode.episode }}</span>
+      <h3>{{ episode.name }}</h3>
+      <p>Lanzamiento: {{ episode.air_date }}</p>
+      <details class="character-details">
+        <summary>Ver personajes ({{ episode.characters.length }})</summary>
+        <div class="character-list">
+          @for (charUrl of episode.characters.slice(0, 10); track charUrl) {
+          <app-character-badge [url]="charUrl"></app-character-badge>
+          } @if (episode.characters.length > 10) {
+          <small>...y {{ episode.characters.length - 10 }} más</small>
+          }
+        </div>
+      </details>
+    </div>
     }
   </div>
 
   <div class="pagination">
-  <button
-    [disabled]="!episodeService.episodes()?.info?.prev || episodeService.loading()"
-    (click)="changePage(currentPage() - 1)">
-    Anterior
-  </button>
+    <button
+      [disabled]="!episodeService.episodes()?.info?.prev || episodeService.loading()"
+      (click)="changePage(currentPage() - 1)"
+    >
+      Anterior
+    </button>
 
-  <span class="page-indicator">
-    Página <strong>{{ currentPage() }}</strong> de {{ episodeService.episodes()?.info?.pages || 1 }}
-  </span>
+    <span class="page-indicator">
+      Página <strong>{{ currentPage() }}</strong> de
+      {{ episodeService.episodes()?.info?.pages || 1 }}
+    </span>
 
-  <button
-    [disabled]="!episodeService.episodes()?.info?.next || episodeService.loading()"
-    (click)="changePage(currentPage() + 1)">
-    Siguiente
-  </button>
-</div>
+    <button
+      [disabled]="!episodeService.episodes()?.info?.next || episodeService.loading()"
+      (click)="changePage(currentPage() + 1)"
+    >
+      Siguiente
+    </button>
+  </div>
 </div>

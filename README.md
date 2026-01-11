@@ -12,12 +12,25 @@ El proyecto está dividido en dos partes principales para asegurar la separació
 Tecnologías y Requisitos
 
 Backend
-- Framework: .NET 8.0
+- ASP.NET Core 8.0 (Target Framework: `net8.0`).
 - Patrones:BFF, Inyección de Dependencias, Middleware de Errores.
-- Documentación: Swagger UI.
+- Documentación: Swashbuckle / Swagger v6.6.2.
+
+El Backend está configurado para ejecutarse en el puerto 7247. Una vez iniciado el proyecto, puedes acceder a:
+
+Documentación Interactiva (Swagger): https://localhost:7247/swagger/index.html (https://localhost:7247/swagger/index.html)  
+
+Ideal para probar los endpoints y ver la estructura de las respuestas.
+
+
+Endpoint Principal (JSON): https://localhost:7247/api/episodes (https://localhost:7247/api/episodes)  
+
+Retorna la lista paginada de episodios consumida por el Frontend.
+
+---------------------------------------------------------------------------------------------
 
 Frontend
-- Framework: Angular 19
+- Framework: Angular 21.0.0
 - Estado: Signals para manejo de datos reactivos.
 - Rendimiento: Hidratación incremental y Standalone Components.
 - Estilos: CSS3 Puro.
@@ -30,9 +43,9 @@ Para probar la solución completa, sigue estos pasos en orden:
 a. Dirígete a la carpeta `backend/`.
 b. Ejecuta `dotnet restore` para instalar dependencias.
 c. Ejecuta `dotnet run` para iniciar la API.
-d. Verifica que la API responda en el puerto indicado (ej. `https://localhost:7xxx/api/episodes`).
+d. Verifica que la API responda en el puerto indicado (ej. `https://localhost:7247/api/episodes`).
 
-2. Iniciar el Frontend
+1. Iniciar el Frontend
 a. Dirígete a la carpeta `frontend/`.
 b. Ejecuta `npm install` para descargar los paquetes.
 c. Ejecuta `ng serve` para iniciar el servidor de desarrollo.

@@ -2,11 +2,12 @@ import { Component, OnInit, inject, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { EpisodeService } from '../../services/episode';
 import { ErrorHandlerComponent } from '../../shared/error-handler/error-handler';
+import { CharacterBadgeComponent } from '../../shared/character-badge/character-badge';
 
 @Component({
   selector: 'app-episode-list',
   standalone: true,
-  imports: [CommonModule, ErrorHandlerComponent],
+  imports: [CommonModule, ErrorHandlerComponent, CharacterBadgeComponent],
   templateUrl: './episode-list.html',
   styleUrls: ['./episode-list.css']
 })
