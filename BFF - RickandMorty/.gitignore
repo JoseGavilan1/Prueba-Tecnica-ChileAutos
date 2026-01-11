@@ -1,0 +1,10 @@
+.vs/
+*.user
+*.userosscache
+*.sln.docstates
+
+bin/
+obj/
+
+publish/
+.vs/

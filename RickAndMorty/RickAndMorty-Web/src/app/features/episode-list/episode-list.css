@@ -1,0 +1,97 @@
+.container {
+  padding: 20px;
+  max-width: 1200px;
+  margin: auto;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+h1 {
+  text-align: center;
+  color: #00b5cc; /* Verde Rick & Morty */
+  text-shadow: 2px 2px #b2df28;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 20px;
+  margin-top: 30px;
+}
+
+.card {
+  background: #2c2c2e;
+  color: white;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+  transition: transform 0.2s;
+  border-left: 5px solid #b2df28;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+.tag {
+  background: #b2df28;
+  color: #2c2c2e;
+  padding: 4px 8px;
+  font-size: 0.8rem;
+  font-weight: bold;
+  border-radius: 4px;
+}
+
+.pagination {
+  margin-top: 40px;
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  align-items: center;
+}
+
+button {
+  padding: 10px 20px;
+  border: none;
+  background: #00b5cc;
+  color: white;
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+button:disabled {
+  background: #555;
+  cursor: not-allowed;
+}
+
+.search-box {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 30px;
+}
+
+.search-input {
+  width: 100%;
+  max-width: 400px;
+  padding: 12px 20px;
+  border-radius: 25px;
+  border: 2px solid #00b5cc;
+  background: #2c2c2e;
+  color: white;
+  outline: none;
+}
+
+.search-input:focus {
+  border-color: #b2df28;
+  box-shadow: 0 0 10px rgba(178, 223, 40, 0.3);
+}
+
+/* Ajuste para que el mensaje de error se vea mejor */
+.error-card {
+  text-align: center;
+  padding: 20px;
+  background: rgba(255, 0, 0, 0.1);
+  border-radius: 10px;
+  color: #ff4444;
+  margin: 20px 0;
+}

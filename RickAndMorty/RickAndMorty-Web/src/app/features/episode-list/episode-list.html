@@ -1,0 +1,53 @@
+<div class="container">
+  <h1>Rick and Morty Episodes</h1>
+
+  <div class="search-box">
+    <input
+      type="text"
+      #searchInput
+      (keyup.enter)="onSearch(searchInput.value)"
+      placeholder="Buscar episodio por nombre... (Presiona Enter)"
+      class="search-input"
+    />
+    <button (click)="onSearch(searchInput.value)">Buscar</button>
+  </div>
+
+  @if (episodeService.loading()) {
+    <div class="loader">Cargando episodios...</div>
+  }
+
+  @if (episodeService.error()) {
+  <app-error-handler
+    [message]="episodeService.error()!"
+    (retry)="changePage(1)">
+  </app-error-handler>
+}
+
+  <div class="grid">
+    @for (episode of episodeService.episodes()?.results; track episode.id) {
+      <div class="card">
+        <span class="tag">{{ episode.episode }}</span>
+        <h3>{{ episode.name }}</h3>
+        <p>Lanzamiento: {{ episode.air_date }}</p>
+      </div>
+    }
+  </div>
+
+  <div class="pagination">
+  <button
+    [disabled]="!episodeService.episodes()?.info?.prev || episodeService.loading()"
+    (click)="changePage(currentPage() - 1)">
+    Anterior
+  </button>
+
+  <span class="page-indicator">
+    Página <strong>{{ currentPage() }}</strong> de {{ episodeService.episodes()?.info?.pages || 1 }}
+  </span>
+
+  <button
+    [disabled]="!episodeService.episodes()?.info?.next || episodeService.loading()"
+    (click)="changePage(currentPage() + 1)">
+    Siguiente
+  </button>
+</div>
+</div>
